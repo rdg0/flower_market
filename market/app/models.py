@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 ROLE = (
     ('seller', 'Продавец'),
     ('buyer', 'Покупатель'),
@@ -62,9 +63,6 @@ class Lot(models.Model):
         ordering = ['price']
         verbose_name = 'Лот продавца'
         verbose_name_plural = 'Лоты продавцов'
-
-    def __str__(self):
-        return self.kind
 
 
 class ReviewLot(models.Model):
@@ -149,12 +147,9 @@ class Deal(models.Model):
         verbose_name = 'Сделка'
         verbose_name_plural = 'Сделки'
 
-    def __str__(self):
-        return f'Deal {self.id}'
-
 
 class DealItem(models.Model):
-    """Лоты в сделке."""
+    """Содержимое сделки."""
     deal = models.ForeignKey(
         Deal,
         on_delete=models.CASCADE,
@@ -182,4 +177,3 @@ class DealItem(models.Model):
     class Meta:
         verbose_name = 'Содержимое сделки'
         verbose_name_plural = 'Содержимое сделки'
-
