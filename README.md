@@ -78,3 +78,6 @@ python3 manage.py runserver
 python3 sales.py
 ``` 
 
+
+Меняю ридми для тренировки с ветками
+
