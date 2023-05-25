@@ -177,3 +177,20 @@ class DealItem(models.Model):
     class Meta:
         verbose_name = 'Содержимое сделки'
         verbose_name_plural = 'Содержимое сделки'
+
+
+
+# Ниже модели не связные с вышестоящими. Для проверки задания с собеса
+
+
+class City(models.Model):
+    name = models.CharField(max_length=256)
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=256)
+    city = models.ForeignKey(
+        City,
+        on_delete=models.CASCADE,
+        related_name='cities',
+    )
