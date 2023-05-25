@@ -1,0 +1,7 @@
+SELECT app_city.name, COUNT(*) AS qt
+FROM app_person
+JOIN app_city ON app_city.id=app_person.city_id
+GROUP BY app_city.name
+HAVING qt > 20
+ORDER BY qt DESC
+LIMIT 5
